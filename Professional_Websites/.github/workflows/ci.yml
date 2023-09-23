@@ -1,0 +1,10 @@
+name: Testing
+on: push
+
+jobs:
+  test_project:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Django unit tests
+        run: source env/bin/activate python3 -m pip3 install --upgrade pip cd Professional_Website pip3 install --user django python3 manage.py test
