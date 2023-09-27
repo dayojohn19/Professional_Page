@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.onscroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       console.log("You Reach the Bottom");
+      modalButtonClick = document.querySelector('button[name="ReachingBottomPageModal"]');
+      modalButtonClick.click();
+      modalButtonClick.remove();
     }
   };
 
@@ -13,3 +16,5 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log(window.innerHeight);
   console.log("\n------------------------------\n");
 });
+
+var csrftoken = window.drf.csrfToken;

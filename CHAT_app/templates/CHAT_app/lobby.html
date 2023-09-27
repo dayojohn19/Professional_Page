@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if room_name %}
+    <h1>Room Name: {{room_name}}</h1>
+
+    {% endif %}
+    <!--  -->
+    <hr />
+    <h1>Lets Chat</h1>
+    <form id="form">
+      <input type="text" name="message" />
+    </form>
+
+    <div id="message"></div>
+    <script type="text/javascript">
+      let room_name = `{{room_name}}`;
+      let url = `ws://${window.location.host}/ws/${room_name}/socket-server/`;
+      const chatSocket = new WebSocket(url);
+
+      chatSocket.onmessage = function (e) {
+        let data = JSON.parse(e.data);
+        console.log("Data: ", data);
+
+        if (data.type === "chat") {
+          data.message = check_if_in_message(data.message);
+          let messages = document.getElementById("message");
+          messages.insertAdjacentHTML(
+            "beforeend",
+            `<div>
+                            <p>${data.message}</p>
+                            </div>
+            `
+          );
+        }
+      };
+
+      let form = document.getElementById("form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let message = e.target.message.value;
+        console.log("Message: ", message);
+        chatSocket.send(
+          JSON.stringify({
+            message: [` ${message}`, "Lobby Username"],
+            username: "Default_JS_Lobbdy_username",
+          })
+        );
+        form.reset();
+      });
+
+      function check_if_in_message(console_message) {
+        console.log("Checking..");
+        if (console_message.indexOf("connect") <= 0) {
+          // console.log(console_message.indexOf("connect") <= 0);
+          // GET USER LOCATION and IP ADDRESS
+          // console.log("New User");
+          // return "Getting User Location";
+          return console_message;
+        } // 7
+        else {
+          console.log("Old User");
+          return console_message;
+        }
+      }
+    </script>
+  </body>
+</html>

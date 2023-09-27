@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Single Page</title>
-    
+
     <link href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -12,8 +12,11 @@
     <script src="/static/SinglePage/PageView.js"></script>
     <script src="/static/js/scrollChecker.js"></script>
     <link href="/static/SinglePage/style.css" rel="stylesheet" />
+    <link href="/static/SinglePage/ChatRoom.css" rel="stylesheet" />
+    <link href="/static/SinglePage/Navbar_2_Page.css" rel="stylesheet" />
   </head>
   <body>
+    <i class="bi bi-chat"></i>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Top navbar</a>
@@ -38,7 +41,7 @@
             </li>
             <!-- END PAGE BUTTON -->
             <li class="nav-item">
-              <button data-page="main-container-page-3" class="PageButton btn btn-outline-success">Page 3</button>
+              <button id="JoinPublicChat" data-page="main-container-page-3" class="PageButton btn btn-outline-success">Public Chat</button>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -49,28 +52,149 @@
       </div>
     </nav>
     <!-- Page Body -->
+
     <main class="main-container" id="main-container-page-1">
       <div class="bg-body-tertiary p-5 rounded">
         <h1>Navbar 1 example</h1>
+
         <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
         <a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>
       </div>
     </main>
     <!--END  Page Body -->
-    <main class="main-container" id="main-container-page-2">
+    <main class="main-container" id="main-container-page-2" style="display: block !important">
       <div class="bg-body-tertiary p-5 rounded">
         <h1>Navbar 2 example</h1>
         <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
         <a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>
+
+        <div class="nav-bar-2-container-2">
+          <div class="nav-bar-2-container-2-sub-container" id="flex-container">
+            <div class="nav-bar-2-sub-container-item">
+              <div class="card">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <title>Placeholder</title>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                  <h5 class="card-title">Card title that wraps to a new line</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="nav-bar-2-sub-container-item">
+              <div class="card">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <title>Placeholder</title>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                  <h5 class="card-title">Card title that wraps to a new line</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+            <div class="nav-bar-2-sub-container-item">
+              <div class="card">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false">
+                  <title>Placeholder</title>
+                  <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                  <h5 class="card-title">Card title that wraps to a new line</h5>
+                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="paypal-button-container-P-81658421GL624870NMUKCK5Q"></div>
+        <!-- PAYPAL PAYMENT -->
+    <!-- <script src="https://www.paypal.com/sdk/js?client-id=AaD6b_SIlF0AS5vEqFpuofGmq9zRadDp3TIZ6w1-bhTRzFMpeCeQf2E3Y7b7UBCs0lAd9p8sWvnt9enO&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+      paypal.Buttons({
+          style: {
+              shape: 'rect',
+              color: 'gold',
+              layout: 'vertical',
+              label: 'subscribe'
+          },
+          createSubscription: function(data, actions) {
+            return actions.subscription.create({
+              /* Creates the subscription */
+              plan_id: 'P-81658421GL624870NMUKCK5Q'
+            });
+          },
+          onApprove: function(data, actions) {
+            alert(data.subscriptionID); // You can add optional success message for the subscriber here
+          }
+      }).render('#paypal-button-container-P-81658421GL624870NMUKCK5Q'); // Renders the PayPal button
+    </script> -->
       </div>
     </main>
 
-    <main class="main-container" id="main-container-page-3">
+    <main class="main-container" id="main-container-page-3" >
       <div class="bg-body-tertiary p-5 rounded">
         <h1>Navbar 3 example</h1>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-        <a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>
+        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+          <div class="dropdown-menu d-block position-static pt-0 mx-0 rounded-3 shadow overflow-hidden w-280px" data-bs-theme="light">
+            <!-- <form onsubmit="searchRoom()" class="p-2 mb-2 bg-body-tertiary border-bottom"> -->
+            <form onsubmit="event.preventDefault();new Chat_Roomm(event.target.message.value);reset()" class="p-2 mb-2 bg-body-tertiary border-bottom">
+              <input  name="message" type="search" class="form-control" autocomplete="false" placeholder="Room Name...">
+            </form>
+            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#"><h1>Room List</h1></a>
+            <a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#"><small>Click to Join</small></a>
+            <ul class="list-unstyled mb-0">
+              <li onclick="this.style.display = 'none';new Chat_Roomm(this.innerText)"><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                <span class="d-inline-block bg-success rounded-circle p-1"></span>
+                Public Chat
+              </a></li>
+              <li onclick="this.style.display = 'none';new Chat_Roomm(this.innerText)"><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                <span class="d-inline-block bg-primary rounded-circle p-1"></span>
+                Private Chat
+              </a></li>
+              <li onclick="this.style.display = 'none';new Chat_Roomm(this.innerText)"><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                <span class="d-inline-block bg-danger rounded-circle p-1"></span>
+                Exclusive Room
+              </a></li>
+              <li onclick="this.style.display = 'none';new Chat_Roomm(this.innerText)"><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="#">
+                <span class="d-inline-block bg-info rounded-circle p-1" ></span>
+                Guest Lobby
+              </a></li>
+            </ul>
+          </div>
       </div>
     </main>
+    <script>
+      function searchRoom(){
+        new Chat_Roomm(event.target.message.value)
+      }
+    </script>
+    <script type="text/javascript" src="/static/js/apis.js"></script>
+    <script type="text/javascript" src="/static/SinglePage/ChatRoom.js"></script>
   </body>
+
+  <!-- Button For reaching Bottom -->
+  <button name="ReachingBottomPageModal" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ReachingBottomPageModal" style="display: none;">
+    Launch static backdrop modal
+  </button>
+
+  <!-- Modal For Reaching Bottom -->
+<div class="modal fade" id="ReachingBottomPageModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ReachingBottomPageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="ReachingBottomPageModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        You Reach the Bottom of the Page
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

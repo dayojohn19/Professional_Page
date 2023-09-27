@@ -31,6 +31,10 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'CHAT_app',
+    'corsheaders',
+    'rest_framework',
     'REST_API_app',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +43,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+# 
+ASGI_APPLICATION = 'Professional_Website.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND':'channels.layers.InMemoryChannelLayer'
+    }
+}
+
+
+# 
 MIDDLEWARE = [
+     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -129,3 +144,14 @@ import os
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'REST_API_app/static/'),
 ]
+CORS_ALLOW_ALL_ORIGINS = True
+
+# REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    # 'DEFAULT_PERMISSION_CLASSES': [
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        #  'rest_framework.permissions.AllowAny',
+        #   'rest_framework.permissions.DjangoModelPermissions',
+    # ]
+# }
