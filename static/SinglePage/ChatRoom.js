@@ -17,8 +17,8 @@ function Chat_Roomm(room_name = null, user_username = null) {
   // this.user_username = user_username;
   // }
 
-  this.base_url = "127.0.0.1:8000";
-
+  // this.base_url = "127.0.0.1:8000";
+  this.base_url = "https://professional-website-2a09915461ba.herokuapp.com";
   //   this.user_username = "KOKO MELON";
   // Creating Socket
   this.socket_url = `ws://${this.base_url}/ws/${this.room_name}/socket-server/`;
