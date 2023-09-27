@@ -1,1 +1,1 @@
-web: gunicorn webSchedule.wsgi
+web: gunicorn Professional_Website.wsgi
