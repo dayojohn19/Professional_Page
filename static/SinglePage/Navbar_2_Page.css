@@ -33,3 +33,29 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.PageButton:focus {
+  background: red !important;
+}
+
+/* .filter-label {
+  display: inline-block;
+  border: 4px solid green;
+  padding: 10px 20px;
+  font-size: 1.4em;
+  text-align: center;
+  cursor: pointer;
+} */
+
+.radio-button {
+  display: none;
+}
+.filter-label:hover {
+  background-color: #505050;
+}
+
+#featured-radio:checked ~ #filter .featured,
+#personal-radio:checked ~ #filter .personal,
+#tech-radio:checked ~ #filter .tech {
+  background-color: rgb(222, 233, 166);
+}

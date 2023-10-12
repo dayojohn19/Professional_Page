@@ -1,0 +1,42 @@
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  /* -webkit-transform: skewX(-20deg);
+  -ms-transform: skewX(-20deg); */
+  /* transform: skewX(-20deg); */
+  transform: scale(1.1, 1.1);
+
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 2 2;
+  transform-origin: 2 2;
+}
+/* 
+.HoverDiv {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid black;
+  width: 360px;
+  margin: 10px;
+}
+
+.HoverDiv img {
+  max-width: 100%;
+  text-align: center;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+} */
+
+.HoverDiv:hover img {
+  /* -moz-transform: scale(1.1, 1.1);
+  -webkit-transform: scale(1.1, 1.1); */
+  /* transform: scale(1.1 1.1); */
+}
+
+img {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  transition: 0.3s;
+  position: relative;
+}

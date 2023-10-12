@@ -1,3 +1,7 @@
+function requestDeleteMessage(Message_delete_request) {
+  console.log("Message to Delete: ", Message_delete_request);
+}
+
 function Chat_Roomm(room_name = null, user_username = null) {
   if (room_name == null) {
     this.room_name = prompt("Room Name: ").split(/\W+/).join("_");
@@ -26,7 +30,7 @@ function Chat_Roomm(room_name = null, user_username = null) {
 
   //   Creating Room Container
   this.room_container = document.createElement("div");
-  this.room_container.setAttribute("class", "bg-body-tertiary p-5 rounded single-chat-room");
+  this.room_container.setAttribute("class", "container bg-body-tertiary p-5 rounded single-chat-room");
   this.Form_Object = document.createElement("form");
   this.Form_Object.setAttribute("id", `Chat_Message_Form_${this.room_name}`);
   this.Form_Object.setAttribute("class", `form_message_input_box`);
@@ -43,7 +47,7 @@ function Chat_Roomm(room_name = null, user_username = null) {
     </div>
   </div>
   `;
-  this.Form_Object.insertAdjacentHTML("beforeend", `<h1>${this.room_name.split("_").join(" ")}</h1>`);
+  this.Form_Object.insertAdjacentHTML("beforeend", `<h1 class="text-primary-emphasis">${this.room_name.split("_").join(" ")}</h1>`);
   this.Form_Object.addEventListener("submit", (e) => {
     e.preventDefault();
     let message = e.target.message.value;
@@ -90,6 +94,7 @@ function Chat_Roomm(room_name = null, user_username = null) {
               <div>
                 <h6 class="mb-0">${data.username}:</h6>
                 <p class="mb-0 opacity-75">${data.message.split("_").join(" ")}</p>
+                
               </div>
               <small class="opacity-50 text-nowrap">now</small>
             </div>
@@ -97,7 +102,9 @@ function Chat_Roomm(room_name = null, user_username = null) {
           `;
     if (data.type === "chat") {
       //   this.chat_messages_container.insertAdjacentHTML("afterend", this.item_message_container);
-      this.room_message_container.insertAdjacentHTML("afterend", this.item_message_container);
+      // this.room_message_container.insertAdjacentHTML("afterend", this.item_message_container);
+      this.room_message_container.innerHTML += this.item_message_container;
+      this.room_message_container.scrollTo(0, this.room_message_container.scrollHeight);
       console.log("Container: ", this.room_message_container, "\n\n");
       //   this.room_message_container.innerHTML = "<h1>hihi</h1>";
     }
