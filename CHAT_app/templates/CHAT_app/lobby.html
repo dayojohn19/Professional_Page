@@ -20,10 +20,10 @@
     <div id="message"></div>
     <script type="text/javascript">
       let room_name = `{{room_name}}`;
-      // base_url = "professional-website-2a09915461ba.herokuapp.com";
+      base_url = "professional-website-2a09915461ba.herokuapp.com";
       // socket_url = `ws://${base_url}/ws/${room_name}/socket-server/`;
-      // url = `ws://${base_url}/ws/${room_name}/socket-server/`;
-      let url = `ws://${window.location.host}/ws/${room_name}/socket-server/`;
+      url = `wss://${base_url}/ws/${room_name}/socket-server/`;
+      // let url = `ws://${window.location.host}/ws/${room_name}/socket-server/`;
       const chatSocket = new WebSocket(url);
 
       chatSocket.onmessage = function (e) {
