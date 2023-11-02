@@ -25,7 +25,7 @@ function Chat_Roomm(room_name = null, user_username = null) {
   this.base_url = "professional-website-2a09915461ba.herokuapp.com";
   //   this.user_username = "KOKO MELON";
   // Creating Socket
-  this.socket_url = `ws://${this.base_url}/ws/${this.room_name}/socket-server/`;
+  this.socket_url = `wss://${this.base_url}/wss/${this.room_name}/socket-server/`;
   this.chatSocket = new WebSocket(this.socket_url);
 
   //   Creating Room Container

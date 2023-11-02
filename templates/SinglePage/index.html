@@ -26,7 +26,9 @@
     <link href="static/SinglePage/ChatRoom.css" rel="stylesheet" />
     <link href="static/SinglePage/ChatBox.css" rel="stylesheet" />
     <link href="static/SinglePage/Navbar_2_Page.css" rel="stylesheet" />
+    <link href="static/SinglePage/carousel.css" rel="stylesheet" />
     <!-- <link href="static/SinglePage/image.css" rel="stylesheet" /> -->
+    
   </head>
   <body>
     <i class="bi bi-chat"></i>
@@ -62,7 +64,7 @@
             <!-- PAGE BUTTON -->
             <li class="nav-item">
               <!-- <label for="personal-radio" class="filter-label " id="personal-label">Personal</label> -->
-              <label for="personal-radio" data-page="main-container-page-2" class="personal filter-label PageButton btn btn-outline-success" id="feature-label">Travel</label>
+              <label for="personal-radio" data-page="main-container-page-2" class="personal filter-label PageButton btn btn-outline-success" id="feature-label" href="travel">Travel</label>
             </li>
             &nbsp
             <!-- END PAGE BUTTON -->
@@ -80,40 +82,115 @@
         </div>
       </div>
     </nav>
-    <!-- Page Body -->
+    <!-- Start Page Body -->
+<!--         ***      -->
+<!--       ******     -->
+<!--     ***  ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--      ************     -->
+<!--      ************     -->
 
-    <main class="main-container" id="main-container-page-1">
+    <main class="main-container" id="main-container-page-1"  style="display: block !important">
       <div class="bg-body-tertiary p-5 rounded">
+        <!-- Starts here -->
         <h1>Navbar 1 example</h1>
+        <h1>About</h1>
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">I Started Travelling from the further most north Philippines. <span class="text-muted">Bought a bike from there</span></h2>
+            <p class="lead">I'm suppose to renew my passport in Northern Philippines Ilocos Region. But it was in the midst of pandemic lockdown where crossing provincial border was stricted tis when I got the idea to bike, Without any knowledge and by mere determination to do it.</p>
+            <a type="button" class="btn btn-success" href="/##">View Northern Philippines</a>
+          </div>
+          <div style="margin: auto auto;" class="col-md-5" >
+            <div class="float-sm-left">Northern Philippines Compilation</div>
+            <video width="100%"  controls>
+              <source src="/images/About_me/Untitled.mov" type="video/mp4">
+            </video>
+            <div id="paypal-button-container-P-5HA54541XU111810DMU7Q22A"></div>
+          </div>
+        </div>  
+        <hr>
+
+        <script src="https://www.paypal.com/sdk/js?client-id=AZKp29XmANwKqTx3-VdxuiDVnuXihdQBZ_vCRJYOcq6v4xh8fZ5YWbtobAMADBTG1bm4a-N9csgOEgwu&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+        <script>
+          paypal.Buttons({
+              style: {
+                  shape: 'rect',
+                  color: 'gold',
+                  layout: 'vertical',
+                  label: 'subscribe'
+              },
+              createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                  /* Creates the subscription */
+                  plan_id: 'P-5HA54541XU111810DMU7Q22A'
+                });
+              },
+              onApprove: function(data, actions) {
+                alert(data.subscriptionID); // You can add optional success message for the subscriber here
+              }
+          }).render('#paypal-button-container-P-5HA54541XU111810DMU7Q22A'); // Renders the PayPal button
+        </script>
+        
 
 
-        <div class="col-md-6">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/b1.jpg" alt="">
-              <h4 class="blog_date">
-                14 <br>
-                July
-              </h4>
-            </div>
-            <div class="detail-box">
-              <h5>
-                Look even slightly believable. If you are
-              </h5>
-              <p>
-                alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-              </p>
-              <a href="">
-                Read More
-              </a>
-            </div>
+
+        <div class="row featurette">
+          <div style="margin: auto auto;" class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Indulged doing it. Continued further to Central Philippines <span class="text-muted">Though it was cut short</span></h2>
+            <p class="lead">It only lasts for around 3 weeks then I stopped in months for work, and the first minute I had the resource to bike I begin doing it again going further to central Philippines Visayaz region</p>
+          </div>
+          <div style="margin: auto auto;" class="col-md-5" >
+            <div class="float-sm-left">Puka Beach In Boracay Island</div>
+            <video width="100%"  controls>
+              <source src="/images/About_me/central_philippines.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-        <a class="btn btn-lg btn-primary" role="button">View navbar docs &raquo;</a>
+        <hr>
+        <!-- End here -->
+        <div style="margin: auto auto;" class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">Services I offered was Creating a website for resorts for a very generous amount</span></h2>
+          <p class="lead">Take a minute to see</p>
+          <a class="btn btn-success" href="/static/SinglePage/services.html">View Deals</a>
+        </div>
+
+
       </div>
     </main>
+    
     <!--END  Page Body -->
+<!--         ***      -->
+<!--       ******     -->
+<!--     ***  ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--          ***     -->
+<!--      ************     -->
+<!--      ************     -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <main class="main-container" id="main-container-page-2" >
       <div class="bg-body-tertiary p-5 rounded">
         <h1>Navbar 2 example</h1>
@@ -231,7 +308,7 @@
       </div>
     </main>
 
-    <main class="main-container" id="main-container-page-3"  style="display: block !important">
+    <main class="main-container" id="main-container-page-3" >
       <div class="bg-body-tertiary p-5 rounded">
         <h1>Navbar 3 example</h1>
 

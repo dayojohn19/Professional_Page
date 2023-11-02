@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services Offered</title>
+    <link href="/static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/static/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div style="display: none">
+      <svg id="check">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+      </svg>
+    </div>
+    <div class="container py-3">
+      <main>
+        <div class="col-md-7">
+          <h2 class="featurette-heading"> There is a Carpooling website and having your website created by us increases the chance having guests in your place  </span></h2>
+          <p class="lead">We provide in your conviniency, a website will be under subdomain for <strong style="color: rgb(0, 107, 228);"><a href="https://treep.today/" target="_blank">https://treep.today</a></strong></p>
+        </div>
+        
+        <br />
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal"> Plain Website</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">₱ 199<small class="text-body-secondary fw-light"> /year</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>You Provide Pictures</li>
+                  <li>You Provide Brochures</li>
+                  <li>Recommendation to travellers</li>
+                </ul>                
+              </div>
+              <div   id="paypal-button-container-P-6YY77491JA327313EMU7Y7XQ"></div>
+                <script src="https://www.paypal.com/sdk/js?client-id=AZKp29XmANwKqTx3-VdxuiDVnuXihdQBZ_vCRJYOcq6v4xh8fZ5YWbtobAMADBTG1bm4a-N9csgOEgwu&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                <script>
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'blue',
+                        layout: 'vertical',
+                        label: 'subscribe'
+                    },
+                    createSubscription: function(data, actions) {
+                        return actions.subscription.create({
+                        /* Creates the subscription */
+                        plan_id: 'P-6YY77491JA327313EMU7Y7XQ'
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                    }
+                }).render('#paypal-button-container-P-6YY77491JA327313EMU7Y7XQ'); // Renders the PayPal button
+                </script>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Website + Pictures</h4>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" style="background-image: url('/images/services/no_video.png'); background-position:center; background-size:contain; background-repeat:no-repeat; overflow:scroll" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a target="_blank" class="btn btn-success" href="https://treep.today/resorts/adventurecampsablayan/">Visit Website</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>                
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">₱ 999<small class="text-body-secondary fw-light"> /year</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>We take pictures for your website</li>
+                  <li>Priority email support</li>
+                  <li>Location Varies</li>
+                </ul>
+              </div>
+              <div id="paypal-button-container-P-2HA61154WP755715HMU7ZEAA"></div>
+            <script>
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'subscribe'
+                },
+                createSubscription: function(data, actions) {
+                    return actions.subscription.create({
+                    /* Creates the subscription */
+                    plan_id: 'P-2HA61154WP755715HMU7ZEAA'
+                    });
+                },
+                onApprove: function(data, actions) {
+                    alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                }
+            }).render('#paypal-button-container-P-2HA61154WP755715HMU7ZEAA'); // Renders the PayPal button
+            </script>
+            </div>
+            
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Website + Pictures + Video</h4>
+              </div>
+              <div class="col">
+                <div class="card shadow-sm">
+                  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" style="background-image: url('/images/services/with_video.png'); background-position:center; background-size:contain; background-repeat:no-repeat; overflow:scroll" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a target="_blank" class="btn btn-success" href="https://treep.today/resorts/villavicentabeachresort/">Visit Website</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>     
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title">₱ 1,499<small class="text-body-secondary fw-light"> /year</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>We take Picture</li>
+                  <li>Create Video Walk Through</li>
+                  <li>Location Varies</li>
+                </ul>
+              </div>
+              <div id="paypal-button-container-P-8EA09025YF8541728MU7ZF2Y"></div>
+              <script>
+              paypal.Buttons({
+                  style: {
+                      shape: 'rect',
+                      color: 'blue',
+                      layout: 'vertical',
+                      label: 'subscribe'
+                  },
+                  createSubscription: function(data, actions) {
+                      return actions.subscription.create({
+                      /* Creates the subscription */
+                      plan_id: 'P-8EA09025YF8541728MU7ZF2Y'
+                      });
+                  },
+                  onApprove: function(data, actions) {
+                      alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                  }
+              }).render('#paypal-button-container-P-8EA09025YF8541728MU7ZF2Y'); // Renders the PayPal button
+              </script>              
+            </div>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%"></th>
+                <th style="width: 22%">Plain Website</th>
+                <th style="width: 22%">Website + Pictures</th>
+                <th style="width: 22%">Website + Pictures + Videos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Pictures</th>
+                <td> 30 + </td>
+                <td> 50 + </td>
+                <td> Unlimited </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Support</th>
+                <td>Email</td>
+                <td> Email and Mobile Message </td>
+                <td> Email, Message, Video Call </td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Video</th>
+                <td> No</td>
+                <td> You Provide the Video </td>
+                <td> We Create Video for you </td>
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Recommendation</th>
+                <td>
+                  <svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>
+                </td>
+                <td>
+                  <svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <h1>Contact Us at <strong>johnwebsiteprojects@gmail.com</strong></h1>
+    </div>
+  </body>
+</html>
