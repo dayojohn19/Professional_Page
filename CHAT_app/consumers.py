@@ -150,7 +150,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':message,
                 'username':username,
-                'message_timestamp':datetime.now.strftime("%I:%M%p %d%b%Y")
+                'message_timestamp':datetime.now().strftime("%I:%M%p %d%b%Y")
             }))
 
     def disconnect(self, close_code):
