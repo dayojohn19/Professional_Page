@@ -30,7 +30,7 @@ class ChatConsumer(WebsocketConsumer):
         print('\n\n Messages: ',self.chatRoom.messages_items)
         print('Message: ',self.chatRoom.chat_room_name)
         for i in self.chatRoom.messages_items:
-            self.receive([[i.sender_chat_message,i.sender_name],'Name Of Person'])
+            self.chat_message([i.sender_chat_message,i.sender_name])
             time.sleep(0.3)
 
         async_to_sync(self.channel_layer.group_add)(
@@ -61,7 +61,7 @@ class ChatConsumer(WebsocketConsumer):
             new_chat_message = Chat_Messages_Model()
             new_chat_message.sender_ID = username
             new_chat_message.sender_name = username
-            new_chat_message.sender_chat_message = message
+            new_chat_message.sender_chat_message = message[0]
             new_chat_message.save()
             new_chat_message.chat_room_model = self.chatRoom
             self.chatRoom.chatroom_messages.add(new_chat_message)
