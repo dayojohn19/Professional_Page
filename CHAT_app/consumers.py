@@ -16,7 +16,7 @@ class ChatConsumer(WebsocketConsumer):
         self.receive([['A Person Joined','Anonymous'],'Name of Persone'])
 
         self.chatRoom = Chat_Room_Model.objects.get_or_create(chat_room_name=self.room_group_name)[0]
-
+        print('\n\n\n\n Created OR FOUND ROOM NAME \n\n')
         #  ... Get Regustered User str(self.scope["user"]) 
         self.chat_message([f'\n You Join the room {current_room}','Unregister User'])
         # 
