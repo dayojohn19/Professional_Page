@@ -7,6 +7,14 @@ class ChatConsumer(WebsocketConsumer):
     
     print('NEWNEWNEW')
     def connect(self):
+        print("""
+        ----------------------------------------
+        ----------------------------------------
+        CONNECTING
+        ----------------------------------------
+        ----------------------------------------
+
+        """)
         from .models import Chat_Room_Model,Chat_Messages_Model
         self.accept() 
         current_room = self.scope["url_route"]["kwargs"]["room_name"]
@@ -58,7 +66,14 @@ class ChatConsumer(WebsocketConsumer):
 
 
     def receive(self, text_data):
+        print("""
+        ----------------------------------------
+        ----------------------------------------
+        RECEIVING
+        ----------------------------------------
+        ----------------------------------------
 
+        """)
         try:
             text_data_json = json.loads(text_data)
             message =  text_data_json['message']
@@ -97,6 +112,14 @@ class ChatConsumer(WebsocketConsumer):
         # pass
     
     def chat_message(self,event,item_timestamp=None):
+        print("""
+        ----------------------------------------
+        ----------------------------------------
+        Chat MESSAGING
+        ----------------------------------------
+        ----------------------------------------
+
+        """)        
         try:
             message = event['message'][0]
             username = event['message'][1]
