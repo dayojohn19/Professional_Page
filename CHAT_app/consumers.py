@@ -1,7 +1,7 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
-
+from datetime import datetime
 import time
 class ChatConsumer(WebsocketConsumer):
     
@@ -42,7 +42,8 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':i.sender_chat_message,
                 'username':i.sender_name,
-                'message_timestamp':i.message_timestamp
+                'message_timestamp':datetime.fromisoformat(i.message_timestamp).strftime("%I:%M%p %d%b%Y")
+                # 'message_timestamp':i.message_timestamp
 
             },default=str,sort_keys=True))            
             # self.chat_message([i.sender_chat_message,i.sender_name])
@@ -95,14 +96,15 @@ class ChatConsumer(WebsocketConsumer):
         except:
             message = text_data[0]
             username = text_data[1]
-            message_timestamp = 'Time not Available'
+            message_timestamp = datetime.now().strftime("%I:%M%p %d%b%Y")
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
                 'type':'chat_message',
                 'message':message,
                 'username':username,
-                'message_timestamp':message_timestamp
+                'message_timestamp':datetime.fromisoformat(message_timestamp).strftime("%I:%M%p %d%b%Y")
+                # 'message_timestamp':message_timestamp
             }
         )
         # self.send(text_data=json.dumps({
@@ -137,7 +139,8 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':message,
                 'username':username,
-                'message_timestamp':new_chat_message.message_timestamp
+                # 'message_timestamp':new_chat_message.message_timestamp
+                'message_timestamp': datetime.fromisoformat(new_chat_message.message_timestamp).strftime("%I:%M%p %d%b%Y")
             },default=str,sort_keys=True))
 
         except:
@@ -147,7 +150,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':message,
                 'username':username,
-                'message_timestamp':'Now'
+                'message_timestamp':datetime.now.strftime("%I:%M%p %d%b%Y")
             }))
 
     def disconnect(self, close_code):
