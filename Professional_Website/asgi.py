@@ -1,3 +1,4 @@
+# isort: skip_file
 """
 ASGI config for Professional_Website project.
 
@@ -11,13 +12,13 @@ import os
 
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter,URLRouter
-from channels.auth import AuthMiddlewareStack
 # import CHAT_app.routing 
 import CHAT_app.routing 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Professional_Website.settings')
 import django
 django.setup()
+from channels.auth import AuthMiddlewareStack
 # application = get_asgi_application()
 application = ProtocolTypeRouter({
     # 'http':get_asgi_application(),
