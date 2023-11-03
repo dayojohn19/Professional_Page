@@ -44,7 +44,7 @@ class ChatConsumer(WebsocketConsumer):
                 'username':i.sender_name,
                 'message_timestamp':i.message_timestamp
 
-            }))            
+            },default=str,sort_keys=True))            
             # self.chat_message([i.sender_chat_message,i.sender_name])
             time.sleep(0.3)
 
@@ -138,7 +138,7 @@ class ChatConsumer(WebsocketConsumer):
                 'message':message,
                 'username':username,
                 'message_timestamp':new_chat_message.message_timestamp
-            }))
+            },default=str,sort_keys=True))
 
         except:
             message = event[0]
