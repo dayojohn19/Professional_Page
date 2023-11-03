@@ -91,20 +91,20 @@ WSGI_APPLICATION = 'Professional_Website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 import dj_database_url
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    # 'default': dj_database_url.config(default='postgres://chat_app_store_massages_user:8MaMwPQ8J15Ng007Kro3GMTKIEmfoAlf@dpg-cl1gavgp2gis73f3eg10-a.oregon-postgres.render.com/chat_app_store_massages',        conn_max_age=600    )
-    'default': dj_database_url.config(default='postgres://message_db_v2_user:w9CTbJpTaeG46FddbJgJ36A1mJF3ARXD@dpg-cl27688p2gis73839jq0-a.singapore-postgres.render.com/message_db_v2',        conn_max_age=600    )
-    }
+# DATABASES = {
+#     # 'default': dj_database_url.config(default='postgres://chat_app_store_massages_user:8MaMwPQ8J15Ng007Kro3GMTKIEmfoAlf@dpg-cl1gavgp2gis73f3eg10-a.oregon-postgres.render.com/chat_app_store_massages',        conn_max_age=600    )
+#     'default': dj_database_url.config(default='postgres://message_db_v2_user:w9CTbJpTaeG46FddbJgJ36A1mJF3ARXD@dpg-cl27688p2gis73839jq0-a.singapore-postgres.render.com/message_db_v2',        conn_max_age=600    )
+#     }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
