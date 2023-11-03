@@ -20,4 +20,4 @@ class Chat_Messages_Model(models.Model):
     sender_image = models.URLField(blank=True)
     sender_chat_message = models.TextField(blank=True,null=True)
     chat_room_model = models.ForeignKey('CHAT_app.Chat_Room_Model',on_delete=models.CASCADE,null=True)
-    # message_timestamp = models.DateTimeField(auto_now_add=True)
+    message_timestamp = models.DateTimeField(auto_now_add=True)

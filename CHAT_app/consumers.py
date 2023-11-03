@@ -33,7 +33,8 @@ class ChatConsumer(WebsocketConsumer):
             self.send(text_data=json.dumps({
                 'type':'chat',
                 'message':i.sender_chat_message,
-                'username':i.sender_name
+                'username':i.sender_name,
+                'message_timestamp':'message_timestamp'
 
             }))            
             # self.chat_message([i.sender_chat_message,i.sender_name])
@@ -79,12 +80,14 @@ class ChatConsumer(WebsocketConsumer):
         except:
             message = text_data[0]
             username = text_data[1]
+            message_timestamp = 'Time not Available'
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
                 'type':'chat_message',
                 'message':message,
-                'username':username
+                'username':username,
+                'message_timestamp':'message_timestamp'
             }
         )
         # self.send(text_data=json.dumps({
