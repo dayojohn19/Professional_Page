@@ -1,3 +1,4 @@
+
 """
 Django settings for Professional_Website project.
 
@@ -32,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'daphne',
-    'CHAT_app',
+    'dj_database_url',
     'corsheaders',
     'rest_framework',
     'REST_API_app',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'CHAT_app',
 ]
 # 
 ASGI_APPLICATION = 'Professional_Website.asgi.application'
