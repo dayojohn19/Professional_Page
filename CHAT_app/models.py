@@ -6,8 +6,8 @@ from datetime import datetime
 
 
 class Chat_Room_Model(models.Model):
-    admin_ID = models.CharField(max_length=10)
-    admin_name = models.CharField(max_length=64)
+    admin_ID = models.CharField(max_length=10,blank=True,null=True)
+    admin_name = models.CharField(max_length=64,blank=True,null=True)
     chat_room_name = models.CharField(max_length=128)
     chatroom_messages = models.ManyToManyField('CHAT_app.Chat_Messages_Model',blank=True, related_name='chat_model_room')
     @property
