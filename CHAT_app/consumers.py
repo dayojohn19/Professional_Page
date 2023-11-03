@@ -1,7 +1,7 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
-from CHAT_app.models import Chat_Room_Model,Chat_Messages_Model
+# from CHAT_app.models import Chat_Room_Model,Chat_Messages_Model
 import time
 class ChatConsumer(WebsocketConsumer):
 
