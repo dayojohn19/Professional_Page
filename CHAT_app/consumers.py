@@ -89,7 +89,7 @@ class ChatConsumer(WebsocketConsumer):
             new_chat_message.chat_room_model = self.chatRoom
             self.chatRoom.chatroom_messages.add(new_chat_message)
             self.chatRoom.save()
-            message_timestamp = new_chat_message.message_timestamp
+            message_timestamp = datetime.fromisoformat(message_timestamp).strftime("%I:%M%p %d%b%Y")
             # .objects.create(sender_ID=username,sender_name=username,sender_chat_message=message,chat_room_model=self.chatRoom)
             # new_chat_message.save()
             print('\n CHat Saved')
@@ -103,7 +103,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat_message',
                 'message':message,
                 'username':username,
-                'message_timestamp':datetime.fromisoformat(message_timestamp).strftime("%I:%M%p %d%b%Y")
+                'message_timestamp':message_timestamp
                 # 'message_timestamp':message_timestamp
             }
         )
