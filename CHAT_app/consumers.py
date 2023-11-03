@@ -97,21 +97,29 @@ class ChatConsumer(WebsocketConsumer):
         # pass
     
     def chat_message(self,event,item_timestamp=None):
-        print(event)
-        print('Event \n\n')
         try:
             message = event['message'][0]
             username = event['message'][1]
-            message_timestamp = 'Chat Message Def'
+
         except:
             message = event[0]
             username = event[1]
-            message_timestamp = 'Chat Message Def'
+
+        from .models import Chat_Messages_Model
+        new_chat_message = Chat_Messages_Model()
+        new_chat_message.sender_ID = username
+        new_chat_message.sender_name = username
+        new_chat_message.sender_chat_message = message
+        new_chat_message.save()
+        new_chat_message.chat_room_model = self.chatRoom
+        self.chatRoom.chatroom_messages.add(new_chat_message)
+        self.chatRoom.save()            
+
         self.send(text_data=json.dumps({
             'type':'chat',
             'message':message,
             'username':username,
-            'message_timestamp':message_timestamp
+            'message_timestamp':new_chat_message.message_timestamp
         }))
 
     def disconnect(self, close_code):
