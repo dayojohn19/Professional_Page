@@ -30,7 +30,13 @@ class ChatConsumer(WebsocketConsumer):
         print('\n\n Messages: ',self.chatRoom.messages_items)
         print('Message: ',self.chatRoom.chat_room_name)
         for i in self.chatRoom.messages_items:
-            self.chat_message([i.sender_chat_message,i.sender_name])
+            self.send(text_data=json.dumps({
+                'type':'chat',
+                'message':i.sender_chat_message,
+                'username':i.sender_name
+
+            }))            
+            # self.chat_message([i.sender_chat_message,i.sender_name])
             time.sleep(0.3)
 
         async_to_sync(self.channel_layer.group_add)(
