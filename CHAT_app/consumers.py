@@ -42,7 +42,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':i.sender_chat_message,
                 'username':i.sender_name,
-                'message_timestamp':str(datetime.fromisoformat(str(i.message_timestamp)).strftime("%I:%M %p %d%b%Y"))
+                'message_timestamp':str(datetime.fromisoformat(str(i.message_timestamp)).strftime("%I:%M %p %d %b %Y"))
                 # 'message_timestamp':i.message_timestamp
 
             },default=str,sort_keys=True))            
@@ -89,14 +89,15 @@ class ChatConsumer(WebsocketConsumer):
             new_chat_message.chat_room_model = self.chatRoom
             self.chatRoom.chatroom_messages.add(new_chat_message)
             self.chatRoom.save()
-            message_timestamp = str(datetime.fromisoformat(message_timestamp).strftime("%I:%M %p %d%b%Y"))
+            message_timestamp = str(datetime.fromisoformat(str(new_chat_message.message_timestamp)).strftime("%I:%M %p %d %b %Y"))
             # .objects.create(sender_ID=username,sender_name=username,sender_chat_message=message,chat_room_model=self.chatRoom)
             # new_chat_message.save()
             print('\n CHat Saved')
         except:
+            print('\n\nExcemption')
             message = text_data[0]
             username = text_data[1]
-            message_timestamp = str(datetime.now().strftime("%I:%M %p %d%b%Y"))
+            message_timestamp = str(datetime.now().strftime("%I:%M %p %d %b %Y"))
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
@@ -141,7 +142,7 @@ class ChatConsumer(WebsocketConsumer):
                 'message':message,
                 'username':username,
                 # 'message_timestamp':new_chat_message.message_timestamp
-                'message_timestamp': str(datetime.fromisoformat(str(new_chat_message.message_timestamp)).strftime("%I:%M %p %d%b%Y"))
+                'message_timestamp': str(datetime.fromisoformat(str(new_chat_message.message_timestamp)).strftime("%I:%M %p %d %b %Y"))
             },default=str,sort_keys=True))
 
         except:
@@ -151,7 +152,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':message,
                 'username':username,
-                'message_timestamp':str(datetime.now().strftime("%I:%M %p %d%b%Y"))
+                'message_timestamp':str(datetime.now().strftime("%I:%M %p %d %b %Y"))
             }))
 
     def disconnect(self, close_code):
