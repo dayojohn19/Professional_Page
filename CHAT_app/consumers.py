@@ -34,7 +34,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat',
                 'message':i.sender_chat_message,
                 'username':i.sender_name,
-                'message_timestamp':'message_timestamp'
+                'message_timestamp':i.message_timestamp
 
             }))            
             # self.chat_message([i.sender_chat_message,i.sender_name])
@@ -87,7 +87,7 @@ class ChatConsumer(WebsocketConsumer):
                 'type':'chat_message',
                 'message':message,
                 'username':username,
-                'message_timestamp':'message_timestamp'
+                'message_timestamp':new_chat_message.message_timestamp
             }
         )
         # self.send(text_data=json.dumps({
@@ -96,20 +96,22 @@ class ChatConsumer(WebsocketConsumer):
         # }))
         # pass
     
-    def chat_message(self,event):
+    def chat_message(self,event,item_timestamp=None):
         print(event)
         print('Event \n\n')
         try:
             message = event['message'][0]
             username = event['message'][1]
+            message_timestamp = 'Chat Message Def'
         except:
             message = event[0]
             username = event[1]
+            message_timestamp = 'Chat Message Def'
         self.send(text_data=json.dumps({
             'type':'chat',
             'message':message,
-            'username':username
-
+            'username':username,
+            'message_timestamp':message_timestamp
         }))
 
     def disconnect(self, close_code):
