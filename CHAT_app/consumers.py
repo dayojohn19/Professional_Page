@@ -80,16 +80,16 @@ class ChatConsumer(WebsocketConsumer):
             message =  text_data_json['message']
             username =  text_data_json['username']
             print('\n Chat messaged')
-            from .models import Chat_Messages_Model
-            new_chat_message = Chat_Messages_Model()
-            new_chat_message.sender_ID = username
-            new_chat_message.sender_name = username
-            new_chat_message.sender_chat_message = message[0]
-            new_chat_message.save()
-            new_chat_message.chat_room_model = self.chatRoom
-            self.chatRoom.chatroom_messages.add(new_chat_message)
-            self.chatRoom.save()
-            message_timestamp = str(datetime.fromisoformat(str(new_chat_message.message_timestamp)).strftime("%I:%M %p %d %b %Y"))
+            # from .models import Chat_Messages_Model
+            # new_chat_message = Chat_Messages_Model()
+            # new_chat_message.sender_ID = username
+            # new_chat_message.sender_name = username
+            # new_chat_message.sender_chat_message = message[0]
+            # new_chat_message.save()
+            # new_chat_message.chat_room_model = self.chatRoom
+            # self.chatRoom.chatroom_messages.add(new_chat_message)
+            # self.chatRoom.save()
+            
             # .objects.create(sender_ID=username,sender_name=username,sender_chat_message=message,chat_room_model=self.chatRoom)
             # new_chat_message.save()
             print('\n CHat Saved')
@@ -97,7 +97,7 @@ class ChatConsumer(WebsocketConsumer):
             print('\n\nExcemption')
             message = text_data[0]
             username = text_data[1]
-            message_timestamp = str(datetime.now().strftime("%I:%M %p %d %b %Y"))
+        message_timestamp = str(datetime.now().strftime("%I:%M %p %d %b %Y"))
         async_to_sync(self.channel_layer.group_send)(
             self.room_group_name,
             {
