@@ -21,8 +21,8 @@ import django
 django.setup()
 # application = get_asgi_application()
 application = ProtocolTypeRouter({
-    # 'http':get_asgi_application(),
-    'https':get_asgi_application(),
+    'http':get_asgi_application(),
+    # 'https':get_asgi_application(),
 
      'websocket':AuthMiddlewareStack(
          URLRouter(

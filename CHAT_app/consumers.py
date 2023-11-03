@@ -19,8 +19,8 @@ class ChatConsumer(WebsocketConsumer):
         #  ... Get Regustered User str(self.scope["user"]) 
         self.chat_message([f'\n You Join the room {current_room}','Unregister User'])
         # 
-        print('\n\n Messages: ',self.chatRoom.messages_items)
-        print('Message: ',self.chatRoom.chat_room_name)
+        # print('\n\n Messages: ',self.chatRoom.messages_items)
+        # print('Message: ',self.chatRoom.chat_room_name)
         for i in self.chatRoom.messages_items:
             self.chat_message([i.sender_chat_message,i.sender_name])
             time.sleep(0.3)
