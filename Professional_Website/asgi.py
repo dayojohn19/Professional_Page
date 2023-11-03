@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/
 
 import os
 
+from channels.auth import AuthMiddlewareStack
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter,URLRouter
 # import CHAT_app.routing 
@@ -18,7 +19,6 @@ import CHAT_app.routing
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Professional_Website.settings')
 import django
 django.setup()
-from channels.auth import AuthMiddlewareStack
 # application = get_asgi_application()
 application = ProtocolTypeRouter({
     # 'http':get_asgi_application(),
