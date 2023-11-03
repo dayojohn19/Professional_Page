@@ -111,7 +111,7 @@ class ChatConsumer(WebsocketConsumer):
         # }))
         # pass
     
-    def chat_message(self,event,item_timestamp=None):
+    def chat_message(self,event):
         print("""
         ----------------------------------------
         ----------------------------------------
@@ -123,27 +123,32 @@ class ChatConsumer(WebsocketConsumer):
         try:
             message = event['message'][0]
             username = event['message'][1]
+            from .models import Chat_Messages_Model
+            new_chat_message = Chat_Messages_Model()
+            new_chat_message.sender_ID = username
+            new_chat_message.sender_name = username
+            new_chat_message.sender_chat_message = message
+            new_chat_message.save()
+            new_chat_message.chat_room_model = self.chatRoom
+            self.chatRoom.chatroom_messages.add(new_chat_message)
+            self.chatRoom.save()            
+
+            self.send(text_data=json.dumps({
+                'type':'chat',
+                'message':message,
+                'username':username,
+                'message_timestamp':new_chat_message.message_timestamp
+            }))
 
         except:
             message = event[0]
             username = event[1]
-
-        from .models import Chat_Messages_Model
-        new_chat_message = Chat_Messages_Model()
-        new_chat_message.sender_ID = username
-        new_chat_message.sender_name = username
-        new_chat_message.sender_chat_message = message
-        new_chat_message.save()
-        new_chat_message.chat_room_model = self.chatRoom
-        self.chatRoom.chatroom_messages.add(new_chat_message)
-        self.chatRoom.save()            
-
-        self.send(text_data=json.dumps({
-            'type':'chat',
-            'message':message,
-            'username':username,
-            'message_timestamp':new_chat_message.message_timestamp
-        }))
+            self.send(text_data=json.dumps({
+                'type':'chat',
+                'message':message,
+                'username':username,
+                'message_timestamp':'Now'
+            }))
 
     def disconnect(self, close_code):
         print('LEFT\n\n')
