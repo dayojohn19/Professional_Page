@@ -1,7 +1,7 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
-from .models import Chat_Room,Chat_Messages
+from .models import Chat_Room_Model,Chat_Messages_Model
 import time
 class ChatConsumer(WebsocketConsumer):
 
@@ -14,7 +14,7 @@ class ChatConsumer(WebsocketConsumer):
         # When A user Joins the Room
         self.receive([['A Person Joined','Anonymous'],'Name of Persone'])
 
-        self.chatRoom = Chat_Room.objects.get_or_create(chat_room_name=self.room_group_name)[0]
+        self.chatRoom = Chat_Room_Model.objects.get_or_create(chat_room_name=self.room_group_name)[0]
 
         #  ... Get Regustered User str(self.scope["user"]) 
         self.chat_message([f'\n You Join the room {current_room}','Unregister User'])
@@ -49,7 +49,7 @@ class ChatConsumer(WebsocketConsumer):
             message =  text_data_json['message']
             username =  text_data_json['username']
             print('\n Chat messaged')
-            new_chat_message = Chat_Messages()
+            new_chat_message = Chat_Messages_Model()
             new_chat_message.sender_ID = username
             new_chat_message.sender_name = username
             new_chat_message.sender_chat_message = message
