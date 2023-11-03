@@ -32,7 +32,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'CHAT_app',
+    # 'CHAT_app',
+    'CHAT_app.apps.ChatAppConfig',
     'daphne',
     'corsheaders',
     'rest_framework',
