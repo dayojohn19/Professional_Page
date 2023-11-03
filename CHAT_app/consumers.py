@@ -16,11 +16,12 @@ class ChatConsumer(WebsocketConsumer):
         self.receive([['A Person Joined','Anonymous'],'Name of Persone'])
         try:
             print('\n\nTrying to fetch old room')
-            self.chatRoom = Chat_Room_Model.objects.get(chat_room_name=self.room_group_name)[0]
+            self.chatRoom = Chat_Room_Model.objects.get(chat_room_name=self.room_group_name)
             print('\n\n Room Fetched')
         except:
             print('\n\n Creating Room')
-            self.chatRoom = Chat_Room_Model.objects.create(admin_ID=self.room_group_name,admin_name=self.room_group_name,chat_room_name=self.room_group_name)[0]
+            self.chatRoom = Chat_Room_Model.objects.create(admin_ID=self.room_group_name,admin_name=self.room_group_name,chat_room_name=self.room_group_name)
+            self.chatRoom.save()
             print('\n\n Created: ',self.room_group_name)
         print('\n\n\n\n Created OR FOUND ROOM NAME \n\n')
         #  ... Get Regustered User str(self.scope["user"]) 
