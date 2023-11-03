@@ -1,12 +1,13 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
-# from CHAT_app.models import Chat_Room_Model,Chat_Messages_Model
+
 import time
 class ChatConsumer(WebsocketConsumer):
-
+    
     print('NEWNEWNEW')
     def connect(self):
+        from .models import Chat_Room_Model,Chat_Messages_Model
         self.accept() 
         current_room = self.scope["url_route"]["kwargs"]["room_name"]
         self.room_group_name = current_room
@@ -14,16 +15,16 @@ class ChatConsumer(WebsocketConsumer):
         # When A user Joins the Room
         self.receive([['A Person Joined','Anonymous'],'Name of Persone'])
 
-        # self.chatRoom = Chat_Room_Model.objects.get_or_create(chat_room_name=self.room_group_name)[0]
+        self.chatRoom = Chat_Room_Model.objects.get_or_create(chat_room_name=self.room_group_name)[0]
 
         #  ... Get Regustered User str(self.scope["user"]) 
         self.chat_message([f'\n You Join the room {current_room}','Unregister User'])
         # 
-        # print('\n\n Messages: ',self.chatRoom.messages_items)
-        # print('Message: ',self.chatRoom.chat_room_name)
-        # for i in self.chatRoom.messages_items:
-        #     self.chat_message([i.sender_chat_message,i.sender_name])
-        #     time.sleep(0.3)
+        print('\n\n Messages: ',self.chatRoom.messages_items)
+        print('Message: ',self.chatRoom.chat_room_name)
+        for i in self.chatRoom.messages_items:
+            self.chat_message([i.sender_chat_message,i.sender_name])
+            time.sleep(0.3)
 
         async_to_sync(self.channel_layer.group_add)(
             self.room_group_name,
@@ -48,15 +49,16 @@ class ChatConsumer(WebsocketConsumer):
             text_data_json = json.loads(text_data)
             message =  text_data_json['message']
             username =  text_data_json['username']
-            # print('\n Chat messaged')
-            # new_chat_message = Chat_Messages_Model()
-            # new_chat_message.sender_ID = username
-            # new_chat_message.sender_name = username
-            # new_chat_message.sender_chat_message = message
-            # new_chat_message.save()
-            # new_chat_message.chat_room_model = self.chatRoom
-            # self.chatRoom.chatroom_messages.add(new_chat_message)
-            # self.chatRoom.save()
+            print('\n Chat messaged')
+            from .models import Chat_Messages_Model
+            new_chat_message = Chat_Messages_Model()
+            new_chat_message.sender_ID = username
+            new_chat_message.sender_name = username
+            new_chat_message.sender_chat_message = message
+            new_chat_message.save()
+            new_chat_message.chat_room_model = self.chatRoom
+            self.chatRoom.chatroom_messages.add(new_chat_message)
+            self.chatRoom.save()
             
             # .objects.create(sender_ID=username,sender_name=username,sender_chat_message=message,chat_room_model=self.chatRoom)
             # new_chat_message.save()
