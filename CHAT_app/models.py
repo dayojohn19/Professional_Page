@@ -13,7 +13,8 @@ class Chat_Room_Model(models.Model):
     @property
     def messages_items(self):
         return self.chatroom_messages.all()
-
+    def __str__(self):
+        return f'{self.chat_room_name}, '
 class Chat_Messages_Model(models.Model):
     sender_ID = models.CharField(max_length=32)
     sender_name = models.CharField(max_length=32)
@@ -21,3 +22,5 @@ class Chat_Messages_Model(models.Model):
     sender_chat_message = models.TextField(blank=True,null=True)
     chat_room_model = models.ForeignKey('CHAT_app.Chat_Room_Model',on_delete=models.CASCADE,null=True)
     message_timestamp = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f'{self.chat_room_model}: {self.sender_chat_message}'    
