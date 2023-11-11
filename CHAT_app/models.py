@@ -12,7 +12,7 @@ class Chat_Room_Model(models.Model):
     chatroom_messages = models.ManyToManyField('CHAT_app.Chat_Messages_Model',blank=True, related_name='chat_model_room')
     @property
     def messages_items(self):
-        return self.chatroom_messages.all()
+        return self.chatroom_messages.all().order_by('-id')[:10:-1]
     def __str__(self):
         return f'{self.chat_room_name}, '
 class Chat_Messages_Model(models.Model):
