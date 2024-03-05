@@ -22,6 +22,7 @@ class ChatConsumer(WebsocketConsumer):
         
         # When A user Joins the Room
         self.receive([['A Person Joined','Anonymous'],'Name of Persone'])
+        
         try:
             print('\n\nTrying to fetch old room')
             self.chatRoom = Chat_Room_Model.objects.get(chat_room_name=self.room_group_name)
@@ -33,7 +34,7 @@ class ChatConsumer(WebsocketConsumer):
             print('\n\n Created: ',self.room_group_name)
         print('\n\n\n\n Created OR FOUND ROOM NAME \n\n')
         #  ... Get Regustered User str(self.scope["user"]) 
-        self.chat_message([f'\n You Join the room {current_room}','Unregister User'])
+        # self.chat_message([f'\n You Join the room {current_room}','Unregister User'])
         # 
         print('\n\n Messages: ',self.chatRoom.messages_items)
         print('Message: ',self.chatRoom.chat_room_name)
